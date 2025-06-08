@@ -1,0 +1,22 @@
+1. Learning Rate : 1e-4 (0.0001)
+Since pre-trained models are already optimized on ImageNet, small learning rate is used that ensures gradual and stable adaption. Large values were avoided so that model does not forget useful features.
+
+2. Learning Rate Scheduler : StepLR(steo_size=5, gamma=0.1)
+After 5 epochs, the learning rate is reduced by factor of 10 which helped in fine-tuning the model more precisely without overshooting minima.
+
+3. Batch Size : 32
+Balanced for GPU memory and training stability
+
+4. Epochs : 10
+I chose 10 epochs so that training time is efficient and at the same time model also converges. Validation accuracy began to saturate by 7th to 8th epoch, which indicated sufficient learning within 10 epochs.
+
+5. Class Weights : [4.5077, 0.5001] 
+Emphasizes underrepresented Normal class
+Normal - 0 (4.5077)
+Pneumonia - 1 (0.5001)
+
+6. Loss Function : CrossEntropyLoss
+Since the dataset was highly imbalanced (90% pneumonia and 10% normal), class weights were calculated (4.51, 0.50) and were used to calculate CrossEntropyLoss. Penalization of misclassification of Normal images are relatively more (4.51x) to ensure balanced learning in both classes.
+
+7. Optimizer : Adam
+It was chosen for its adaptive learning rate, faster convergence and robust performance. We can further use L2 regularization (via `weight_decay`) if regularization is required further.
