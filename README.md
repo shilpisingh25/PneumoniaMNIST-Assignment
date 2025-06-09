@@ -13,12 +13,12 @@ To fine-tune a ResNet-50 model for distinguishing pneumonia from normal chest X-
 - Evaluated with Accuracy, F1-score, and AUC-ROC
 
 ## Metrics
-- Accuracy: 90.7%
+- Accuracy: 91.03%
 - AUC-ROC: 0.9743
 - F1-score (Pneumonia): 0.93
 
 ## Files Included
 - `Pneumonia_ResNet5050.ipynb` – training and evaluation code
-- `PneumoniaMNIST_Presentation.pptx` – 5-slide presentation
+- `Pneumonia-MNIST-presentation.pptx` – 5-slide presentation
 - `requirements.txt` – libraries needed
 - `hyperparameters.txt` – note on LR, batch size, etc.
